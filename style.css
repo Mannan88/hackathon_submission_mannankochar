@@ -1,0 +1,435 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffe6b3;
+    color: #4a2c00;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: scroll;
+    position: relative;
+}
+
+/* --- Background Shapes Styling --- */
+.background-shapes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.shape {
+    position: absolute;
+    filter: blur(20px);
+    opacity: 0.4;
+    animation: float 20s infinite ease-in-out alternate;
+}
+
+.shape.circle {
+    border-radius: 50%;
+}
+
+.shape.square {
+    border-radius: 10%;
+}
+
+.shape-1 {
+    width: 150px;
+    height: 150px;
+    background-color: #ff8c00;
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+    animation-duration: 9s;
+}
+
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    background-color: #a7e23b;
+    bottom: 20%;
+    right: 15%;
+    animation-delay: 4s;
+    animation-duration: 3s;
+}
+
+.shape-3 {
+    width: 180px;
+    height: 180px;
+    background-color: #ffd700;
+    top: 40%;
+    left: 25%;
+    animation-delay: 8s;
+    animation-duration: 3s;
+}
+
+.shape-4 {
+    width: 150px;
+    height: 150px;
+    background-color: #ff4500;
+    top: 5%;
+    right: 5%;
+    animation-delay: 10s;
+    animation-duration: 3s;
+}
+
+.shape-5 {
+    width: 200px;
+    height: 200px;
+    background-color: #ffae00;
+    bottom: 10%;
+    left: 10%;
+    animation-delay: 16s;
+    animation-duration: 3s;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+    25% {
+        transform: translate(30px, -30px) rotate(5deg) scale(1.05);
+    }
+    50% {
+        transform: translate(0, -60px) rotate(-5deg) scale(1);
+    }
+    75% {
+        transform: translate(-20px, -30px) rotate(5deg) scale(0.95);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+}
+
+/* --- Main Content and Keyword Styles --- */
+.main-content {
+text-align: center;
+position: relative;
+z-index: 10;
+height: 100vh;
+align-content: center;
+
+}
+
+
+h1 {
+    font-size: 3.5em;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    max-width: 1000px;
+    color: #a84700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tagline {
+    font-size: 1.4em;
+    color: #7b3c00;
+    margin-bottom: 40px;
+}
+
+.keyword {
+    color: #ff8c00;
+    cursor: pointer;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    padding: 0 6px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.keyword:hover {
+    color: #ffffff;
+    background-color: #ff5e00;
+    transform: translateY(-2px);
+}
+
+.call-to-action {
+    background-color: #ff5e00;
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Ensure box-shadow transitions */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    /* --- New Shine Effect Properties --- */
+    position: relative; /* Needed for absolute positioning of the pseudo-element */
+    overflow: hidden;   /* Hides the shine when it's outside the button */
+    z-index: 1;         /* Ensures the shine is above the button background */
+}
+
+.call-to-action::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start the shine off-left */
+    width: 30%; /* Width of the shine effect */
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3); /* White, semi-transparent shine */
+    /* Linear gradient for a more realistic shine effect (optional, can be solid color) */
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 70%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-20deg); /* Skew for a diagonal shine */
+    transition: left 0.5s ease-out, transform 0.5s ease-out; /* Smooth transition for the shine movement */
+    z-index: 2; /* Ensure shine is above button content */
+}
+
+.call-to-action:hover {
+    background-color: #ff8c00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Slight larger shadow on hover */
+}
+
+.call-to-action:hover::after {
+    left: 100%; /* Move the shine across to the right */
+}
+.small-text {
+    font-size: 1em;
+    margin-top: 20px;
+    opacity: 0.8;
+    color: #7b3c00;
+}
+
+/* --- Pop-up Cards Styling --- */
+.popup-card {
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    min-width: 200px;
+    max-width: 250px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.9);
+
+    transition: opacity 0.4s ease-out,
+                transform 0.4s ease-out,
+                visibility 0s 0.4s; /* Hide visibility only after 0.4s delay */
+    z-index: 20;
+    color: #333;
+    will-change: opacity, transform; /* Will-change only for animating properties */
+}
+
+.popup-card.active {
+    opacity: 1;
+    visibility: visible;
+    /* Active subtle state: full scale, and a slight lift */
+    transform: scale(1) translateY(-10px); /* Lifts up subtly by 10px */
+
+    /* Visibility transition is immediate when showing. */
+    transition: opacity 0.4s ease-out,
+                transform 0.4s ease-out,
+                visibility 0s 0s; /* Show visibility immediately */
+}
+
+#goodness-card-1 {
+    top: 120px;
+    left: 25%;
+    transform: translateX(-50%) scale(0.9) translateY(0);
+}
+#goodness-card-1.active {
+    transform: translateX(-50%) scale(1) translateY(-10px);
+}
+
+#goodness-card-2 {
+    
+    top: 120px; /* Adjust as needed */
+    right: 5%; /* Adjust as needed */
+   transform: translateX(-50%) scale(0.9) translateY(0);
+}
+
+#goodness-card-2.active {
+    transform: translateX(-50%) scale(1) translateY(-10px);
+}
+
+#freshness-card-1 {
+    /* Example: positioned to the right of "Freshness" keyword */
+    top: 400px; 
+    right: 60%; 
+    transform: scale(0.9); /* No translateX needed if already positioned correctly */
+    z-index: 21;
+}
+
+#freshness-card-1.active {
+    transform: scale(1) translateX(10px); /* Moves right subtly */
+}
+
+#freshness-card-2 {
+    /* Example: positioned above "Freshness" keyword */
+    top: 150px; 
+    right: 77%; 
+    transform: scale(0.9);
+}
+
+#freshness-card-2.active {
+    transform: scale(1) translateY(-10px);
+}
+
+#vibrance-card-1 {
+    top: 200px; 
+    left: 75%; 
+    transform: scale(0.9);
+}
+
+#vibrance-card-1.active {
+    transform: scale(1) translateX(10px);
+}
+
+#vibrance-card-2 {
+    /* Example: positioned below "Vibrance" keyword */
+    top: 400px; 
+    left: 55%; 
+    transform: scale(0.9);
+}
+
+#vibrance-card-2.active {
+    transform: scale(1) translateY(10px); /* Moves down subtly */
+}
+
+
+/* --- Card Content Specific Styling --- */
+.popup-card h3 {
+    margin-top: 0;
+    color: #ff5e00;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.popup-card p {
+    font-size: 1em;
+    line-height: 1.2;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.fruit-icons {
+    font-size: 2em;
+    margin: 10px 0;
+    text-align: center;
+}
+.fruit-icons span {
+    margin: 0 5px;
+}
+.tag-line-small {
+    font-size: 0.7em;
+    font-style: italic;
+    color: #888;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.fresh-visual {
+    font-size: 2em;
+    text-align: center;
+    margin: 16px 0;
+    animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    from {
+        text-shadow: 0 0 5px rgba(255, 140, 0, 0.4);
+    }
+    to {
+        text-shadow: 0 0 15px rgba(255, 140, 0, 0.8), 0 0 20px rgba(255, 140, 0, 0.5);
+    }
+}
+
+.popup-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+}
+
+.popup-card ul li {
+    background-color: #fff0d9;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    font-size: 0.8em;
+    color: #555;
+    border-left: 5px solid #ff8c00;
+}
+
+.popup-card ul li:last-child {
+    margin-bottom: 0;
+}
+
+.popup-card ul li::before {
+    content: '';
+    margin-right: 0;
+}
+
+.popup-card img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Media queries for responsiveness --- */
+@media (max-width: 900px) {
+    h1 {
+        font-size: 2.5em;
+    }
+    /* On smaller screens, override the fixed positions */
+    .popup-card {
+        top: auto !important; /* Allow bottom to take precedence */
+        left: 50% !important;
+        bottom: 20px; /* Position at the bottom */
+        width: 85%;
+        min-width: unset;
+        box-sizing: border-box;
+        padding: 20px;
+        transform: translateX(-50%) translateY(30px) scale(0.9); /* Start below for mobile pop-up */
+    }
+    .popup-card.active {
+        transform: translateX(-50%) translateY(0) scale(1); /* Pop up to center for mobile */
+    }
+
+    .popup-card ul {
+        grid-template-columns: 1fr;
+    }
+
+    .shape {
+        filter: blur(20px);
+    }
+    .shape-1, .shape-2, .shape-3, .shape-4, .shape-5 {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 2em;
+    }
+    .popup-card {
+        padding: 15px;
+        width: 90%;
+    }
+    .call-to-action {
+        font-size: 1em;
+        padding: 12px 25px;
+    }
+    .shape-1, .shape-2, .shape-3, .shape-4, .shape-5 {
+        width: 100px;
+        height: 100px;
+    }
+}
