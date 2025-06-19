@@ -1,0 +1,130 @@
+/* --- New Section for Nutritional Facts --- */
+.nutritional-facts-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 60px auto; /* Adjust margin as needed */
+    padding: 30px;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+}
+
+.nutritional-facts-section h2 {
+    font-size: 3em;
+    font-weight: 700;
+    color: #a84700; /* Matching main heading color */
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.nutritional-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Spacing between cards */
+}
+
+.nutritional-card {
+    background-color: #ffffff; /* White background like popup cards */
+    border-radius: 15px; /* Matching popup card border-radius */
+    padding: 25px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Slightly softer shadow than popup */
+    min-width: 300px;
+    max-width: 350px;
+    flex: 1 1 auto; /* Allows cards to grow/shrink but not less than min-width */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Subtle hover effect */
+    color: #4a2c00; /* Darker theme color for main text */
+}
+
+.nutritional-card:hover {
+    transform: translateY(-8px); /* Lifts slightly on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* More pronounced shadow on hover */
+}
+
+.nutritional-card .card-header {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ffe6b3; /* Light theme separator */
+    padding-bottom: 15px;
+}
+
+.nutritional-card h3 {
+    font-size: 1.8em;
+    color: #ff5e00; /* Orange heading from popup cards */
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.nutritional-card .per-serving {
+    font-size: 0.9em;
+    color: #7b3c00; /* Darker orange for tagline */
+    opacity: 0.8;
+}
+
+.nutritional-card .value-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 1em;
+}
+
+.nutritional-card .value-label {
+    flex: 2;
+    text-align: left;
+    color: #4a2c00; /* Darker theme color */
+    font-weight: 600;
+}
+
+.nutritional-card .value-number {
+    flex: 1;
+    text-align: right;
+    color: #7b3c00; /* Darker orange for values */
+    font-weight: 500;
+}
+
+.nutritional-card .progress-bar-container {
+    flex: 3;
+    height: 8px;
+    background-color: #f0f0f0; /* Light gray for empty bar */
+    border-radius: 5px;
+    margin-left: 10px;
+    overflow: hidden;
+}
+
+.nutritional-card .progress-bar {
+    height: 100%;
+    background-color: #ff8c00; /* Bright orange for progress */
+    border-radius: 5px;
+    transition: width 0.8s ease-out; /* Smooth fill animation (can be activated with JS if needed) */
+}
+
+.nutritional-card .card-footer {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #ffe6b3; /* Light theme separator */
+    font-size: 0.95em;
+    font-style: italic;
+    color: #7b3c00; /* Darker orange for footer text */
+}
+
+/* --- Responsive Adjustments for Nutritional Cards --- */
+@media (max-width: 992px) {
+    .nutritional-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .nutritional-card {
+        max-width: 90%; /* Allow cards to take more width on smaller screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .nutritional-facts-section h2 {
+        font-size: 2.2em;
+    }
+    .nutritional-card {
+        padding: 20px;
+    }
+    .nutritional-card h3 {
+        font-size: 1.5em;
+    }
+}
