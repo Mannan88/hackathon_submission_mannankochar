@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetGroup = keyword.dataset.targetGroup;
             const cardsInGroup = document.querySelectorAll(`[id^="${targetGroup}-card-"]`);
 
-            // Hide any currently active cards that are NOT part of the current group
             activeCardGroup.forEach(cardId => {
                 if (!cardId.startsWith(targetGroup)) {
                     const cardToHide = document.getElementById(cardId);
@@ -22,14 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             });
-            activeCardGroup.clear(); // Clear previous active group
+            activeCardGroup.clear();
 
             if (cardsInGroup.length > 0) {
-                // No more getBoundingClientRect or cardWidth/Height calculations for positioning
-                // Cards are now positioned purely by CSS
-
                 cardsInGroup.forEach(targetCard => {
-                    // Just add the active class. CSS handles position, visibility, and animation.
                     targetCard.classList.add('active');
                     activeCardGroup.add(targetCard.id);
                 });
@@ -42,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     const cardToHide = document.getElementById(cardId);
                     if (cardToHide) {
                         cardToHide.classList.remove('active');
-                        // IMPORTANT: Cards remain in their CSS-defined positions when inactive.
                     }
                 });
                 activeCardGroup.clear();
@@ -64,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     const cardToHide = document.getElementById(cardId);
                     if (cardToHide) {
                         cardToHide.classList.remove('active');
-                       
                     }
                 });
                 activeCardGroup.clear();
@@ -79,18 +72,15 @@ document.addEventListener('DOMContentLoaded', () => {
             keywords.forEach(keyword => {
                 const targetGroup = keyword.dataset.targetGroup;
                 if (Array.from(activeCardGroup).some(id => id.startsWith(targetGroup))) {
-                   const cardsToReposition = document.querySelectorAll(`[id^="${targetGroup}-card-"]`);
+                    const cardsToReposition = document.querySelectorAll(`[id^="${targetGroup}-card-"]`);
                     cardsToReposition.forEach(card => card.classList.remove('active'));
                     activeCardGroup.clear();
-
                     keyword.dispatchEvent(new Event('mouseenter'));
                 }
             });
         }, 250);
     });
 });
-
-
 
 const brands = [
   ["perplexity.png", "supercell.png", "monzo.png", "raycast.png", "retool.png", "mercury.png"],
@@ -126,7 +116,6 @@ setInterval(() => {
       oldImg.classList.remove("visible");
 
       setTimeout(() => {
-   
         oldImg.src = `assets/logos/${newSet[i]}`;
         oldImg.alt = newSet[i].split(".")[0];
 
@@ -136,6 +125,13 @@ setInterval(() => {
       }, 400); 
     }, i * 100); 
   });
+}, 3000);
 
-}, 3000); 
-
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const loader = document.getElementById('loader');
+    loader.style.opacity = '0';
+    loader.style.pointerEvents = 'none';
+    setTimeout(() => loader.style.display = 'none', 500);
+  }, 2000);
+});
