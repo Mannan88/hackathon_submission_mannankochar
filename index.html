@@ -5,12 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fresh Squeeze Juices - Taste the Goodness!</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="brands.css">
      <link rel="stylesheet" href="nutrition.css">
       <link rel="stylesheet" href="carousel.css">
       <link rel="stylesheet" href="contact.css">
 </head>
 <body>
+
+    <header class="navbar">
+  <div class="navbar-logo">🍊FJ</div>
+  <nav class="navbar-links">
+    <a href="#home">Home</a>
+    <a href="#brands">Brands</a>
+    <a href="#nutrition">Nutrition</a>
+    <a href="#showcase">Juices</a>
+    <a href="#contact">Contact</a>
+    <button id="darkModeToggle" aria-label="Toggle dark mode">🌓</button>
+
+  </nav>
+  <div class="navbar-toggle">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+</header>
+
     <div id="loader">
   <div class="loader-content">
     <h1>Refreshing Goodness...</h1>
@@ -26,7 +47,7 @@
         <div class="shape square shape-4"></div>
         <div class="shape circle shape-5"></div>
     </div>
-
+<section id="home">
     <div class="main-content">
         <h1>
             Taste the <span class="keyword" data-target-group="goodness">Goodness</span>,
@@ -91,13 +112,20 @@
             <span>🍓</span><span>🍇</span><span>🥝</span><span>🍋</span>
         </div>
     </div>
+
+    </section>
+
+<section id="brands">
+
   <div class="carousel-container">
     <div class="carousel" id="carousel">
 
     </div>
     <button class="meet-button">Meet the Brands</button>
   </div>
-  <section class="nutritional-facts-section">
+</section>
+  
+  <section id="nutrition" class="nutritional-facts-section">
     <h2>Juice Nutritional Snapshot</h2>
 
     <div class="nutritional-grid">
@@ -194,9 +222,7 @@
 
     </div>
 </section>
-
-
-<section class="juice-showcase-carousel">
+<section id="showcase" class="juice-showcase-carousel">
     <h2>Our Signature Blends</h2>
     <div class="main-carousel">
 
@@ -228,7 +254,7 @@
     <button class="view-all-button call-to-action">Explore All Juices</button>
 </section>
 
-<section class="contact-us-section">
+<section id="contact" class="contact-us-section">
     <h2>Connect With Us!</h2>
     <div class="contact-box">
         <div class="contact-info">

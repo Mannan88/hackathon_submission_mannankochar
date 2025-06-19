@@ -1,3 +1,12 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
 .carousel-container {
   position: relative;
   width: 100%;
@@ -13,6 +22,11 @@
   border-radius: 15px;
   margin-top: 50px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .carousel-container {
+  background-color: rgba(40, 40, 40, 0.7);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
 }
 
 .carousel {
@@ -61,6 +75,12 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+body.dark-mode .meet-button {
+  background-color: #ffa347;
+  color: #000000;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+}
+
 .meet-button::after {
   content: '';
   position: absolute;
@@ -83,6 +103,10 @@
   opacity: 1;
   pointer-events: all;
   background-color: #ff8c00;
+}
+
+body.dark-mode .carousel-container:hover .meet-button {
+  background-color: #ffb566;
 }
 
 .carousel-container:hover .meet-button::after {

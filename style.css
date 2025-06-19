@@ -213,40 +213,38 @@ h1 {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     min-width: 200px;
     max-width: 250px;
-
     opacity: 0;
     visibility: hidden;
     transform: scale(0.9);
-
-    transition: opacity 0.4s ease-out,
-                transform 0.4s ease-out,
-                visibility 0s 0.4s; /* Hide visibility only after 0.4s delay */
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out, visibility 0s 0.4s;
     z-index: 20;
     color: #333;
-    will-change: opacity, transform; /* Will-change only for animating properties */
+    will-change: opacity, transform;
 }
 
 .popup-card.active {
     opacity: 1;
     visibility: visible;
-    /* Active subtle state: full scale, and a slight lift */
-    transform: scale(1) translateY(-10px); /* Lifts up subtly by 10px */
-
-    /* Visibility transition is immediate when showing. */
-    transition: opacity 0.4s ease-out,
-                transform 0.4s ease-out,
-                visibility 0s 0s; /* Show visibility immediately */
+    transform: scale(1) translateY(-10px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out, visibility 0s 0s;
 }
 
 #goodness-card-1 {
-    top: 120px;
+    top: 60px;
     left: 25%;
-    transform: translateX(-50%) scale(0.9) translateY(0);
+    transform: translateX(-50%) scale(0.8);
+    background-color: transparent;
+    color: white;
+    opacity: 0.5;
+    visibility: visible;
+      z-index: 5;
 }
 #goodness-card-1.active {
     transform: translateX(-50%) scale(1) translateY(-10px);
+    background-color: #ffffff;
+    color: #333;
+    opacity: 1;
 }
-
 #goodness-card-2 {
     
     top: 120px; /* Adjust as needed */
@@ -259,17 +257,21 @@ h1 {
 }
 
 #freshness-card-1 {
-    /* Example: positioned to the right of "Freshness" keyword */
-    top: 400px; 
-    right: 60%; 
-    transform: scale(0.9); /* No translateX needed if already positioned correctly */
-    z-index: 21;
+    top: 400px;
+    right: 60%;
+    transform: scale(0.8);
+    background-color: transparent;
+    color: white;
+    opacity: 0.5;
+    visibility: visible;
+      z-index: 5;
 }
-
 #freshness-card-1.active {
-    transform: scale(1) translateX(10px); /* Moves right subtly */
+    transform: scale(1) translateX(10px);
+    background-color: #ffffff;
+    color: #333;
+    opacity: 1;
 }
-
 #freshness-card-2 {
     /* Example: positioned above "Freshness" keyword */
     top: 150px; 
@@ -282,13 +284,20 @@ h1 {
 }
 
 #vibrance-card-1 {
-    top: 200px; 
-    left: 75%; 
-    transform: scale(0.9);
+    top: 200px;
+    left: 75%;
+    transform: scale(0.8);
+    background-color: transparent;
+    color: white;
+    opacity: 0.5;
+    visibility: visible;
+    z-index: 5;
 }
-
 #vibrance-card-1.active {
     transform: scale(1) translateX(10px);
+    background-color: #ffffff;
+    color: #333;
+    opacity: 1;
 }
 
 #vibrance-card-2 {

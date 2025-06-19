@@ -1,3 +1,25 @@
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        const offset = 80; // Adjust for navbar height
+        const top = target.offsetTop - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.navbar-toggle');
+  const links = document.querySelector('.navbar-links');
+
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('active');
+  });
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const keywords = document.querySelectorAll('.keyword');
     let activeCardGroup = new Set();
@@ -84,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const brands = [
   ["perplexity.png", "supercell.png", "monzo.png", "raycast.png", "retool.png", "mercury.png"],
-  ["spotify.png", "airbnb.png", "discord.png", "stripe.png", "figma.png", "twitch.png"],
+  ["spotify.jpg", "airbnb.png", "discord.png", "stripe.png", "figma.png", "twitch.png"],
   ["slack.png", "notion.png", "openai.png", "dropbox.png", "netflix.png", "uber.png"]
 ];
 
@@ -96,7 +118,7 @@ brands[0].forEach((logo) => {
   container.className = "logo-wrapper";
 
   const img = document.createElement("img");
-  img.src = `assets/logos/${logo}`;
+  img.src = `assets/${logo}`;
   img.alt = logo.split(".")[0];
   img.classList.add("visible");
 
@@ -135,3 +157,9 @@ window.addEventListener('load', () => {
     setTimeout(() => loader.style.display = 'none', 500);
   }, 2000);
 });
+
+  const toggleBtn = document.getElementById("darkModeToggle");
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+  });
+
